@@ -1,3 +1,3 @@
-#!/bin/bash
+g++ -g -c interactions.cxx 
 g++ -g -c *.cxx -fpermissive
-g++ -o *.o -lm
+g++ -o exe *.o -lm
