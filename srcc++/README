@@ -1,0 +1,2 @@
+Pour compiler le projet et l'executer, lancer la commande suivante :
+sh compil.sh && ./exe
