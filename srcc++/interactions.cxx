@@ -6,7 +6,7 @@
 #define G 0.16
 #define SIMULATION_W 500000.
 #define SIMULATION_H 500000.
-#define __NODE_TOLERANCY__ 0.8
+#define __NODE_TOLERANCY__ 0.5
 
 void calcForce(particle *p_i, particle *p_j){
     coords vect;
@@ -88,6 +88,7 @@ void checkNodeDistance(node *nodes, particle *particle_u){
         diff.x = (nodes->barycenter.x - particle_u->pos.x);
         diff.y = (nodes->barycenter.y - particle_u->pos.y);
         float dist = sqrt((diff.x*diff.x)+(diff.y*diff.y));
+        // NODE TOLERANCY correspond à notre pas de 1/2 pour dispatcher les différentes particules //
         if((!nodes->hasChild) || ((nodes->widthSize / dist) < (__NODE_TOLERANCY__))){
             calcForceBary(nodes, particle_u);
             nodes->completed = true;
