@@ -43,7 +43,7 @@ particle *createParticle(coords pos, float weigh){
     np->pos.x = pos.x;
     np->pos.y = pos.y;
     np->wei = weigh;
-    np->spe.x = 0.; 
+    np->spe.x = 0.;
     np->spe.y = 0.;
     np->acc.x = 0.;
     np->acc.y = 0.;
@@ -69,11 +69,11 @@ void updateParticles(std::vector<particle*>particles){
       if(((particles[i]->pos.x > SIMULATION_W) && (particles[i]->spe.x > 0.))
 	 || ((particles[i]->pos.x < 0.) && (particles[i]->spe.x < 0.)))
 	particles[i]->spe.x *= -1.0;
-      
+
       if(((particles[i]->pos.y > SIMULATION_H) && (particles[i]->spe.y > 0.))
 	 || ((particles[i]->pos.y < 0.) && (particles[i]->spe.y < 0.)))
 	particles[i]->spe.y *= -1.0;
-      
+
         particles[i]->spe.x += particles[i]->acc.x / particles[i]->wei;
         particles[i]->spe.y += particles[i]->acc.y / particles[i]->wei;
         particles[i]->pos.x += particles[i]->spe.x;
@@ -98,7 +98,6 @@ void checkNodeDistance(node *nodes, particle *particle_u){
             checkNodeDistance(nodes->Child[2],particle_u);
             checkNodeDistance(nodes->Child[3],particle_u);
         }
-        
     }
     return;
 }
